@@ -4,17 +4,9 @@
     You need to find out if the given unix pattern matches the given filename.
 </p>
 
-<p> Let me show you a couple of small examples of matching the filenames in the unix-shell. For example, * matches everything and *.txt matches all of the files that have txt extension. Here is a small table that shows symbols that can be used in patterns</p>
+<p> Here is a small table that shows symbols that can be used in patterns</p>
 
 <table style="border:1px solid black">
-    <tr>
-        <th>*</th>
-        <td>matches everything</td>
-    </tr>
-    <tr>
-        <th>?</th>
-        <td>matches any single character</td>
-    </tr>
     <tr>
         <th>[seq]</th>
         <td>matches any character in seq</td>
@@ -42,22 +34,14 @@
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">unixMatch('somefile.txt', '*') == true
-unixMatch('other.exe', '*') == true
-unixMatch('my.exe', '*.txt') == false
-unixMatch('log1.txt', 'log?.txt') == true
+<pre class="brush: javascript">unixMatch('somefile.txt', 'somefile.txt') == true
+unixMatch('1name.txt', '[!abc]name.txt') == true
 unixMatch('log1.txt', 'log[1234567890].txt') == true
-unixMatch('log12.txt', 'log?.txt') == false
-unixMatch('log12.txt', 'log??.txt') == true
 </pre>
 {% else %}
-<pre class="brush: python">unix_match('somefile.txt', '*') == True
-unix_match('other.exe', '*') == True
-unix_match('my.exe', '*.txt') == False
-unix_match('log1.txt', 'log?.txt') == True
+<pre class="brush: python">unix_match('somefile.txt', 'somefile.txt') == True
+unix_match('1name.txt', '[!abc]name.txt') == True
 unix_match('log1.txt', 'log[1234567890].txt') == True
-unix_match('log12.txt', 'log?.txt') == False
-unix_match('log12.txt', 'log??.txt') == True
 </pre>
 {% endif %}
 </div>

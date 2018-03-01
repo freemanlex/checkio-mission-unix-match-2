@@ -10,12 +10,10 @@ if (!global.is_checking) {
     console.log(unixMatch('somefile.txt', '*'))
 
     // These "asserts" are used for self-checking and not for an auto-testing
-    assert.equal(unixMatch('somefile.txt', '*'), true)
-    assert.equal(unixMatch('other.exe', '*'), true)
-    assert.equal(unixMatch('my.exe', '*.txt'), false)
-    assert.equal(unixMatch('log1.txt', 'log?.txt'), true)
+    assert.equal(unixMatch('somefile.txt', 'somefile.txt'), true)
+    assert.equal(unixMatch('1name.txt', '[!abc]name.txt'), true)
+    assert.equal(unixMatch('log1.txt', 'log[!0].txt'), true)
+    assert.equal(unixMatch('log1.txt', 'log[!1].txt'), false)
     assert.equal(unixMatch('log1.txt', 'log[1234567890].txt'), true)
-    assert.equal(unixMatch('log12.txt', 'log?.txt'), false)
-    assert.equal(unixMatch('log12.txt', 'log??.txt'), true)
     console.log("Coding complete? Click 'Check' to earn cool rewards!");
 }
