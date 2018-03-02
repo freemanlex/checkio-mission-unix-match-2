@@ -1,0 +1,60 @@
+<!-- Describe task in general -->
+
+<p>
+    Ваша задача - определить, соответствует ли заданное имя файла заданному поисковому паттерну.
+</p>
+
+<p> Вот небольшая таблица, которая показывает, какие символы могут использовать в паттернах</p>
+
+<table style="border:1px solid black">
+    <tr>
+        <th>[паттерн]</th>
+        <td>соответствует любому символу в квадратных скобках, например [123] означает - любой символ из набора "123"</td>
+    </tr>
+    <tr>
+        <th>[!паттерн]</th>
+        <td>соответствует любому символу, кроме тех, что находятся в квадратных скобках, например [!123] означает - любой символ кроме "1", "2" и "3"</td>
+    </tr>
+</table>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Входные данные: </strong> Два аргумента. Оба - строки.
+</p>
+
+<p>
+    <strong>Выходные данные: </strong> True or False.
+</p>
+
+
+<!-- Put some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Пример:</strong>
+    </p>
+
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: javascript">unixMatch('somefile.txt', 'somefile.txt') == true
+unixMatch('1name.txt', '[!abc]name.txt') == true
+unixMatch('log1.txt', 'log[1234567890].txt') == true
+</pre>
+{% else %}
+<pre class="brush: python">unix_match('somefile.txt', 'somefile.txt') == True
+unix_match('1name.txt', '[!abc]name.txt') == True
+unix_match('log1.txt', 'log[1234567890].txt') == True
+</pre>
+{% endif %}
+</div>
+<!-- Here you can explain how it can be used in development and what is usage of this. -->
+<!-- The section is optional -->
+<p class="for_info_only">
+    <strong>Как это используется: </strong>
+    <i>Для облегчения поиска нужных файлов</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Предусловия:</strong>
+    <i>0 < len(strings) < 100</i>
+</p>
