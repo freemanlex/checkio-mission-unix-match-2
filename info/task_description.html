@@ -9,13 +9,16 @@
 <table style="border:1px solid black">
     <tr>
         <th>[seq]</th>
-        <td>matches any character in seq</td>
+        <td>matches any character in seq, for example [123] means any character - '1', '2' or '3'</td>
     </tr>
     <tr>
         <th>[!seq]</th>
-        <td>matches any character not in seq</td>
+        <td>matches any character not in seq, for example [!123] means any character except '1', '2' and '3'</td>
     </tr>
 </table>
+
+<p>Note that the expression in one pair of square brackets respond only
+for 1 character. So ('0123', '[!abc]123') == True, but ('00123', '[!abc]123') = False</p>
 
 <!-- Explain input and output values -->
 <p>
