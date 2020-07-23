@@ -1,19 +1,16 @@
-"use strict";
+import assert from "assert";
 
-function unixMatch(filename, pattern) {
-    return filename == pattern;
+function unixMatch(filename: string, pattern: string): boolean {
+    // your code here
+    return true;
 }
 
-var assert = require('assert');
-if (!global.is_checking) {
-    console.log('Example:')
-    console.log(unixMatch('somefile.txt', '*'))
+console.log('Example:');
+console.log(unixMatch('log1.txt', 'log[1234567890].txt'));
 
-    // These "asserts" are used for self-checking and not for an auto-testing
-    assert.equal(unixMatch('somefile.txt', 'somefile.txt'), true)
-    assert.equal(unixMatch('1name.txt', '[!abc]name.txt'), true)
-    assert.equal(unixMatch('log1.txt', 'log[!0].txt'), true)
-    assert.equal(unixMatch('log1.txt', 'log[!1].txt'), false)
-    assert.equal(unixMatch('log1.txt', 'log[1234567890].txt'), true)
-    console.log("Coding complete? Click 'Check' to earn cool rewards!");
-}
+// These "asserts" are used for self-checking
+assert.equal(unixMatch('log1.txt', 'log[1234567890].txt'), true);
+assert.equal(unixMatch('log1.txt', 'log[!1].txt'), false);
+
+console.log("Coding complete? Click 'Check' to earn cool rewards!");
+    
