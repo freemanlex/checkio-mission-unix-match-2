@@ -82,16 +82,6 @@ TESTS = {
             "input": ['[!]check.txt', '[!]check.txt'],
             "answer": True,
             "explanation": "[!] is not class"
-        },
-        {
-            "input": ['check.txt', '[[c]heck.txt'],
-            "answer": True,
-            "explanation": "unmatched brackets"
-        },
-        
-        {
-            "input": ["checkio", "[c[]heckio"],
-            "answer": True
         }
 
     ]
