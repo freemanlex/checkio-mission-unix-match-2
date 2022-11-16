@@ -10,7 +10,6 @@ Each test is a dict with
 
 TESTS = {
     "Basics": [
-        
         {
             "input": ['log1.txt', 'log[1234567890].txt'],
             "answer": True,
@@ -20,10 +19,9 @@ TESTS = {
             "input": ['log1.txt', 'log[!1].txt'],
             "answer": False,
             "explanation": "!1 matches any single character except 1"
-        }
+        },
     ],
     "Extra": [
-        
         {
             "input": ['name.txt', 'name.exe'],
             "answer": False,
@@ -72,17 +70,16 @@ TESTS = {
         
         {
             "input": ['name....', 'name.[!.][!.][!.]'],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ['name.exe', 'name.[!.][!.][!.]'],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ['[!]check.txt', '[!]check.txt'],
             "answer": True,
             "explanation": "[!] is not class"
-        }
-
+        },
     ]
 }

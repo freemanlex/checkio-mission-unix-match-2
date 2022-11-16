@@ -1,0 +1,78 @@
+<!-- Describe task in general -->
+
+<p>Іноді ти опиняєшся в ситуації, коли серед величезної кількості файлів на всьому комп'ютері або в окремій теці потрібно знайти файли певного типу. Наприклад, зображення з розширенням '.jpg' або документи з розширенням '.txt', або навіть файли, що містять слово 'метелик' у імені. Робити це вручну може зайняти багато часу. "Пошук відповідності" або шаблони для пошуку файлів за певною маскою - це саме те, що тобі потрібно для подібних проблем.<br>
+Ця місія допоможе тобі зрозуміти, як це працює.</p>
+
+<p>
+    Тобі потрібно з'ясувати, чи відповідає даний Unix шаблон даному імені файлу.
+</p>
+
+<p>
+    Ось невелика таблиця, в якій подані символи, які можна використовувати в шаблонах.
+</p>
+
+<style>
+    table, td, th {border: 1px solid black;}
+</style>
+
+<table>
+    <tr>
+        <th>[seq]</th>
+        <td>відповідає будь-якому одному символу в seq, наприклад [123] значить - '1' або '2' або '3'</td>
+    </tr>
+    <tr>
+        <th>[!seq]</th>
+        <td>відповідає будь-якому одному символу крім тих, що в seq, наприклад [!123] значить крім - '1' і '2' і '3'</td>
+    </tr>
+    <tr>
+        <th>[]</th>
+        <td>сукупність без символів ніколи не матиме відповідності</td>
+    </tr>
+</table>
+
+<p>Зауваж, що вираз в одній парі квадратних дужок відповідає лише 1 символу. Тож:
+{% if is_js %}
+<pre class="brush: javascript">
+unixMatch('0123', '[!abc]123') == true;
+// але
+unixMatch('00123', '[!abc]123') == false;
+</pre>
+{% else %}
+<pre class="brush: python">
+unix_match('0123', '[!abc]123') == True
+# але
+unix_match('00123', '[!abc]123') == False
+{% endif %}
+</p>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Вхідні дані:</strong> Два аргументи. Обидва рядки.
+</p>
+
+<p>
+    <strong>Вихідні дані:</strong> Логічне (булеве) значення.
+</p>
+
+
+<!-- Put some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Приклади:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
+<!-- Here you can explain how it can be used in development and what is usage of this. -->
+<!-- The section is optional -->
+<p class="for_info_only">
+    <strong>Як це використовується:</strong>
+    <i>у Unix консолі.</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Передумови:</strong>
+    <i>0 < довжина рядків < 100</i>
+</p>

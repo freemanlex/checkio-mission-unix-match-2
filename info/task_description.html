@@ -9,7 +9,11 @@ This mission will help you understand how this works.</p>
 
 <p> Here is a small table that shows symbols that can be used in patterns.</p>
 
-<table style="border:1px solid black">
+<style>
+    table, td, th {border: 1px solid black;}
+</style>
+
+<table>
     <tr>
         <th>[seq]</th>
         <td>matches any character in seq, for example [123] means any character - '1', '2' or '3'</td>
@@ -25,40 +29,44 @@ This mission will help you understand how this works.</p>
 </table>
 
 <p>Note that the expression in one pair of square brackets responds only
-for 1 character. So <pre>('0123', '[!abc]123') == True, but ('00123', '[!abc]123') = False</pre></p>
+for 1 character. So:
+{% if is_js %}
+<pre class="brush: javascript">
+unixMatch('0123', '[!abc]123') == true;
+// but
+unixMatch('00123', '[!abc]123') == false;
+</pre>
+{% else %}
+<pre class="brush: python">
+unix_match('0123', '[!abc]123') == True
+# but
+unix_match('00123', '[!abc]123') == False
+{% endif %}
+</p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Two arguments. Both are strings.
+    <strong>Input:</strong> Two arguments. Both are strings.
 </p>
 
 <p>
-    <strong>Output: </strong> Bool.
+    <strong>Output:</strong> Bool.
 </p>
 
 
 <!-- Put some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Examples:</strong>
     </p>
 
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">unixMatch('log1.txt', 'log[1234567890].txt') == true
-unixMatch('log1.txt', 'log[!1].txt') == false
-</pre>
-{% else %}
-<pre class="brush: python">unix_match('somefile.txt', 'somefile.txt') == True
-unix_match('1name.txt', '[!abc]name.txt') == True
-unix_match('log1.txt', 'log[1234567890].txt') == True
-</pre>
-{% endif %}
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 <!-- Here you can explain how it can be used in development and what is usage of this. -->
 <!-- The section is optional -->
 <p class="for_info_only">
-    <strong>How it is used: </strong>
-    <i>in the unix-shell</i>
+    <strong>How it is used:</strong>
+    <i>in the unix-shell.</i>
 </p>
 
 <!-- Here you can explain some constraints for input-->

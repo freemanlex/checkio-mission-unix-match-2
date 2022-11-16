@@ -9,7 +9,11 @@
 
 <p> Вот небольшая таблица, которая показывает, какие символы могут использовать в паттернах.</p>
 
-<table style="border:1px solid black">
+<style>
+    table, td, th {border: 1px solid black;}
+</style>
+
+<table>
     <tr>
         <th>[паттерн]</th>
         <td>соответствует любому символу в квадратных скобках, например [123] означает - любой символ из набора "123"</td>
@@ -18,43 +22,50 @@
         <th>[!паттерн]</th>
         <td>соответствует любому символу, кроме тех, что находятся в квадратных скобках, например [!123] означает - любой символ кроме "1", "2" и "3"</td>
     </tr>
+    <tr>
+        <th>[]</th>
+        <td>множество без символов ничему не будет соответствовать</td>
+    </tr>
 </table>
 
 <p>Обратите внимание, что выражение в одной паре квадратных скобок отвечает только
-за 1 символ. То есть, ('0123', '[!abc]123') == True, но ('00123', '[!abc]123') = False</p>
+за 1 символ. То есть,
+{% if is_js %}
+<pre class="brush: javascript">
+unixMatch('0123', '[!abc]123') == true;
+// но
+unixMatch('00123', '[!abc]123') == false;
+</pre>
+{% else %}
+<pre class="brush: python">
+unix_match('0123', '[!abc]123') == True
+# но
+unix_match('00123', '[!abc]123') == False
+{% endif %}</p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Входные данные: </strong> Два аргумента. Оба - строки.
+    <strong>Входные данные:</strong> Два аргумента. Оба - строки.
 </p>
 
 <p>
-    <strong>Выходные данные: </strong> True or False.
+    <strong>Выходные данные:</strong> Логическое значение.
 </p>
 
 
 <!-- Put some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Пример:</strong>
+        <strong>Примеры:</strong>
     </p>
 
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">unixMatch('log1.txt', 'log[1234567890].txt') == true
-unixMatch('log1.txt', 'log[!1].txt') == false
-</pre>
-{% else %}
-<pre class="brush: python">unix_match('somefile.txt', 'somefile.txt') == True
-unix_match('1name.txt', '[!abc]name.txt') == True
-unix_match('log1.txt', 'log[1234567890].txt') == True
-</pre>
-{% endif %}
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 <!-- Here you can explain how it can be used in development and what is usage of this. -->
 <!-- The section is optional -->
 <p class="for_info_only">
-    <strong>Как это используется: </strong>
-    <i>Для облегчения поиска нужных файлов</i>
+    <strong>Как это используется:</strong>
+    <i>Для облегчения поиска нужных файлов.</i>
 </p>
 
 <!-- Here you can explain some constraints for input-->
